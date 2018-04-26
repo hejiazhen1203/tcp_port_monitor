@@ -52,6 +52,8 @@ def add_addr(name, httpaddr, coment):
             session.close()
 # add_addr(u"虚拟机ssh服务", "192.168.10.129:22", u"检查22端口是否存活")
 # add_addr(u"虚拟机test服务", "192.168.10.129:23", u"检查23端口是否存活")
+# import sys
+# sys.exit(0)
 #执行监控项
 def check_addr():
     try:

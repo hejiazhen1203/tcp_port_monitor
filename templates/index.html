@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60">   <!--设置页面60s自动刷新-->
+    <title>Test</title>
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
+    <link href="/static/css/font-awesome.css?v=4.4.0" rel="stylesheet">
+
+    <!-- Data Tables -->
+    <link href="/static/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+
+    <link href="/static/css/animate.css" rel="stylesheet">
+    <link href="/static/css/style.css?v=4.1.0" rel="stylesheet">
+
+</head>
+
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <h5>端口探测 <small>目前仅适用tcp</small></h5>
+                        <div class="ibox-tools">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="close-link">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="ibox-content">
+
+                        <table class="table table-striped table-bordered table-hover dataTables-example">
+                            <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>名称</th>
+                                    <th>端口地址</th>
+                                    <th>连续成功次数</th>
+                                    <th>连续失败次数</th>
+                                    <th>报警次数</th>
+                                    <th>数据更新时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for d in data %}
+                                    <tr class="gradeX">
+                                        <th>{{ d.id }}</th>
+                                        <th>{{ d.name }}</th>
+                                        <th>{{ d.httpaddr }}</th>
+                                        <th>{{ d.success }}</th>
+                                        {% if d.faild >= 1 %}
+                                            <th bgcolor="#FF6633">{{ d.faild }}</th>
+                                        {% else %}
+                                            <th>{{ d.faild }}</th>
+                                        {% endif %}
+                                        {% if d.alerts >= 1 %}
+                                            <th bgcolor="#FF0000">{{ d.alerts }}</th>
+                                        {% else %}
+                                            <th>{{ d.alerts }}</th>
+                                        {% endif %}
+                                        <th>{{ d.last_commit }}</th>
+                                    </tr>
+                                {% endfor %}
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                    <th>-</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 全局js -->
+    <script src="/static/js/jquery.min.js?v=2.1.4"></script>
+    <script src="/static/js/bootstrap.min.js?v=3.3.6"></script>
+
+
+
+    <script src="/static/js/plugins/jeditable/jquery.jeditable.js"></script>
+
+    <!-- Data Tables -->
+    <script src="/static/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="/static/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+
+    <!-- 自定义js -->
+    <script src="/static/js/content.js?v=1.0.0"></script>
+
+    <!-- Page-Level Scripts -->
+    <script>
+        $(document).ready(function () {
+            $('.dataTables-example').dataTable();
+
+        });
+
+    </script>
+
+</body>
+
+</html>

@@ -24,9 +24,9 @@ engine = create_engine(config.SQLALCHEMY_DATABASE_URI, echo=False)
 Session = scoped_session(sessionmaker(bind=engine, autocommit=False, autoflush=False))
 
 #
-# if __name__ == '__main__':
-#
-#     Base.metadata.create_all(engine)
+if __name__ == '__main__':
+
+    Base.metadata.create_all(engine)
 
     # session = Session()
     # test1 = Monitor(name=u"啊129ssh",httpaddr="192.168.10.129:222",coment=u"192ssh端口检查")
