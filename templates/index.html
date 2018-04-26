@@ -5,7 +5,7 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="60">   <!--设置页面60s自动刷新-->
+    <meta http-equiv="refresh" content="30">   <!--设置页面60s自动刷新-->
     <title>Test</title>
     <link rel="shortcut icon" href="favicon.ico">
     <link href="/static/css/bootstrap.min.css?v=3.3.6" rel="stylesheet">
@@ -66,7 +66,11 @@
                                         {% else %}
                                             <th>{{ d.alerts }}</th>
                                         {% endif %}
-                                        <th>{{ d.last_commit }}</th>
+                                        {% if d.refush >= 180 %}
+                                            <th bgcolor="#FF0000">{{ d.last_commit }}</th>
+                                        {% else %}
+                                            <th>{{ d.last_commit }}</th>
+                                        {% endif %}
                                     </tr>
                                 {% endfor %}
 

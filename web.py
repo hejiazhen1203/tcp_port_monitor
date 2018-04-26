@@ -2,7 +2,7 @@
 # -*- coding: utf-8
 from flask import Flask, render_template
 import models
-
+import time
 def GetData():
     try:
         session = models.Session()
@@ -16,7 +16,8 @@ def GetData():
             resp['success'] = data.success
             resp['faild'] = data.faild
             resp['alerts'] =data.alerts
-            resp['last_commit'] =        data.last_commit
+            resp['last_commit'] = data.last_commit
+            resp['refush'] = int(time.time() - time.mktime(time.strptime(data.last_commit, '%Y-%m-%d %H:%M:%S')))
             resp_list.append(resp)
         return resp_list
     except Exception as e:
