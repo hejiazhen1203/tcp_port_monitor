@@ -15,7 +15,7 @@ class Monitor(Base):
     httpaddr = Column(String, unique=True, nullable=False)
     success = Column(Integer, default=0, nullable=False)
     faild = Column(Integer, default=0, nullable=False)
-    last_commit = Column(String)
+    last_commit = Column(String, default='1970-01-01 08:00:00')
     alerts = Column(Integer, default=0, nullable=False)
     coment = Column(Text)
     def __repr__(self):

@@ -27,7 +27,7 @@ def GetData():
         if session:
             session.close()
 
-# GetData()
+# print  GetData()
 # import sys
 # sys.exit(0)
 app=Flask(__name__)
