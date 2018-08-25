@@ -18,6 +18,6 @@ smtpserver = 'smtp.exmail.qq.com'
 
 #微信设置
 send_weixin = True
-corpid = 'ww3e021b3079c7d9d2'  # CorpID是企业号的标识
-corpsecret = 'tWShMrMrhODaHCsbFmU3_5NiIn5pZzeMwto2E6VCjrM'  # 应用secret
-agentid = 1000004  # 应用id
+corpid = '请填写自己的企业号ID'  # CorpID是企业号的标识
+corpsecret = '请填写自己的应用secret'  # 应用secret
+agentid = 请填写自己的应用id  # 应用id
