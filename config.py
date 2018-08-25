@@ -11,9 +11,9 @@ alert_times = 3
 #邮箱设置
 send_email = False
 mailto_list = ['512610309@qq.com']
-mail_sender = 'gyy@cloudwalk.cn'
-mail_username = 'gyy@cloudwalk.cn'
-mail_password = 'Cloud@0305'
+mail_sender = 'youremail'
+mail_username = 'youremail'
+mail_password = 'yourpass'
 smtpserver = 'smtp.exmail.qq.com'
 
 #微信设置
